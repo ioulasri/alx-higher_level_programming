@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-for i in range(ord('a'), ord('z')+1):
-    print(chr(i).format(chr), end='')
+print(''.join('{}'.format(chr(i)) for i in range(ord('a'), ord('z')+1)), end="")
