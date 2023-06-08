@@ -14,12 +14,14 @@ if __name__ == "__main__":
         print("Unknown operator. Available operators: +, -, * and / ")
         sys.exit(1)
 
-    dict = {'*': mul(int(sys.argv[1]), int(sys.argv[3])),
-            '-': sub(int(sys.argv[1]), int(sys.argv[3])),
-            '+': add(int(sys.argv[1]), int(sys.argv[3])),
-            '/': div(int(sys.argv[1]), int(sys.argv[3])),
+    a = sys.argv[1]
+    b = sys.argv[3]
+    dict = {'*': mul(int(a), int(b)),
+            '-': sub(int(a), int(b)),
+            '+': add(int(a), int(b)),
+            '/': div(int(a), int(b)),
             }
 
     for key, value in dict.items():
         if key == sys.argv[2]:
-            print(value)
+            print("{} {} {} = {}".format(a, key, b, value))
