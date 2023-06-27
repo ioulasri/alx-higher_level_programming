@@ -55,14 +55,15 @@ class Square():
             print()
 
     def __str__(self) -> str:
-        if self.__size == 0:
-            return '\n'
-        lines = []
-        line = ""
-        [lines.append('\n') for i in range(0, self.__position[1])]
+        """Define the print() representation of a Square."""
+        if self.__size != 0:
+            for _ in range(self.__position[1]):
+                print("")
         for i in range(self.__size):
-            line = " " * self.__position[0]
-            for j in range(self.__size):
-                line += "#"
-            lines.append(line)
-        return "\n".join(lines)
+            for _ in range(self.__position[0]):
+                print(" ", end="")
+            for _ in range(self.__size):
+                print("#", end="")
+            if i != self.__size - 1:
+                print("")
+        return ""
