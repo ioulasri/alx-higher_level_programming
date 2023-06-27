@@ -1,16 +1,26 @@
 #!/usr/bin/python3
+"""Define classes for a singly-linked list."""
+
 
 class Node():
     def __init__(self, value, next_node=None) -> None:
+        """Initialize a new Node.
+
+        Args:
+            data (int): The data of the new Node.
+            next_node (Node): The next node of the new Node.
+        """
         self.data = value
         self.next_node = next_node
 
     @property
     def data(self):
+        """Get/set the data of the Node."""
         return (self.__data)
 
     @data.setter
     def data(self, value):
+        """Get/set the next_node of the Node."""
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
@@ -32,15 +42,6 @@ class SinglyLinkedList:
     def __init__(self):
         """Initalize a new SinglyLinkedList."""
         self.__head = None
-
-    def __str__(self):
-        """Define the print() representation of a SinglyLinkedList."""
-        curr = self.__head
-        values = []
-        while curr is not None:
-            values.append(str(curr.data))
-            curr = curr.next_node
-        return '\n'.join(values)
 
     def sorted_insert(self, value):
         """Insert a new Node to the SinglyLinkedList.
@@ -76,3 +77,12 @@ class SinglyLinkedList:
             next_node = curr.next_node
             curr.next_node = node
             node.next_node = next_node
+
+    def __str__(self):
+        """Define the print() representation of a SinglyLinkedList."""
+        curr = self.__head
+        values = []
+        while curr is not None:
+            values.append(str(curr.data))
+            curr = curr.next_node
+        return '\n'.join(values)
