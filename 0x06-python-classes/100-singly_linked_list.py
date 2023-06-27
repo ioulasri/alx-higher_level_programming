@@ -56,7 +56,7 @@ class SinglyLinkedList:
             self.__head = node
             return
 
-        node = Node(value, None)
+        node = Node(value)
         curr = self.__head
 
         if (curr.data > value):
