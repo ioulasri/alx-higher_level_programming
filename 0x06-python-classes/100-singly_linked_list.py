@@ -22,10 +22,11 @@ class Node():
 
     @next_node.setter
     def next_node(self, value):
-        if not (value == None or isinstance(value, Node)):
+        if not (value is None or isinstance(value, Node)):
             raise TypeError("next_node must be a Node object")
         else:
             self.__next_node = value
+
 
 class SinglyLinkedList:
     def __init__(self):
