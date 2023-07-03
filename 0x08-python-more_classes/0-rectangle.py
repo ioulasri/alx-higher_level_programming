@@ -2,6 +2,7 @@
 
 """ define class rectangle"""
 
+
 class Rectangle():
     """ inside class rectangle"""
     pass
