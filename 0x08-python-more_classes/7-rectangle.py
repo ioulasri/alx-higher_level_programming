@@ -7,7 +7,7 @@ class Rectangle():
 
     number_of_instances = 0
     print_symbol = "#"
-    
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
@@ -64,7 +64,12 @@ class Rectangle():
         """
         if (not self.__height or not self.__width):
             return ""
-        return ((str(self.print_symbol) * self.__width + "\n") * self.__height)[:-1]
+        rectn = ""
+        for i in range(self.__height):
+            rectn += str(self.print_symbol) * self.__width
+            if i != self.__height - 1:
+                rectn += "\n"
+        return rectn
 
     def __repr__(self) -> str:
         """Return the string representation of the Rectangle."""
