@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""Module for read_file"""
 
 def read_file(file=""):
-    with open(file, 'r') as f:
-        lines = f.readlines()
-    for i in lines:
-        print(i)
+    """Reads a text file (UTF8) and prints it to stdout"""
+    with open(file, encoding="utf-8") as f:
+        print(f.read(), end="")
