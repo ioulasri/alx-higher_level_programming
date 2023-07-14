@@ -76,7 +76,6 @@ class Base():
         with open(filename, "w") as f:
             f.write(list)
 
-
     @classmethod
     def load_from_file_csv(cls):
         """load from file csv"""

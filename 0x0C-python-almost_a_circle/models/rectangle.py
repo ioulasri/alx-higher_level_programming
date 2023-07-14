@@ -50,7 +50,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """sets the value x"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("x must be an integer")
         elif value < 0:
             raise ValueError("x must be >= 0")
@@ -77,13 +77,21 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-        """prints the rectangle"""
-        [print() for i in range(self.__y)]
-        [print(" " * (self.__x - 1), "#" * self.__width) for i in range(self.__height)]
+        """Print the Rectangle using the `#` character."""
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+
+        [print("") for y in range(self.y)]
+        for h in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for w in range(self.width)]
+            print("")
 
     def __str__(self) -> str:
         """returns the string"""
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.__x}/ \
+    {self.__y} - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """Update the Rectangle.
@@ -131,8 +139,7 @@ class Rectangle(Base):
                 elif k == "y":
                     self.y = v
 
-
-
     def to_dictionary(self):
         """returns the dictionary"""
-        return {"id": self.id, "width": self.__width, "height": self.__height, "x": self.__x, "y": self.__y}
+        return {"id": self.id, "width": self.__width,
+                "height": self.__height, "x": self.__x, "y": self.__y}
